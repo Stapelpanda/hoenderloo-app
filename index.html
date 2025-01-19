@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/icons/icon-192x192.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#4CAF50" />
+    <meta name="description" content="Interactieve speurtocht door Hoenderloo" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    
+    <!-- iOS specific -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Hoenderloo Speurtocht" />
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+    
+    <!-- PWA support -->
+    <link rel="manifest" href="/hoenderloo-app/manifest.json" />
+    
+    <!-- Prevent desktop usage -->
+    <script>
+      if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        document.write('Deze app werkt alleen op mobiele apparaten. Open de app op je telefoon om de speurtocht te starten.');
+        document.documentElement.style.padding = '20px';
+        document.documentElement.style.fontFamily = 'system-ui, sans-serif';
+      }
+    </script>
+    
+    <title>Hoenderloo Speurtocht</title>
+    <script type="module" crossorigin src="/hoenderloo-app/assets/index-DW-sPHqd.js"></script>
+    <link rel="stylesheet" crossorigin href="/hoenderloo-app/assets/index-DBngcBFb.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
