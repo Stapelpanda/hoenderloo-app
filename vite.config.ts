@@ -9,7 +9,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       manifest: false, // We're using our own manifest.json
       workbox: {
-        globPatterns: [
+       maximumFileSizeToCacheInBytes: 200000000,
+       globPatterns: [
           '**/*.{js,css,html,ico,png,svg,jpg,jpeg,gpx}',
           'manifest.json'
         ],
