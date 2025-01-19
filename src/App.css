@@ -1,0 +1,123 @@
+:root {
+  --primary-color: #4CAF50;
+  --background-color: #f5f5f5;
+  --text-color: #333;
+  --error-color: #f44336;
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-color);
+}
+
+.app-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #f0f0f0;
+}
+
+.error-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: var(--background-color);
+  text-align: center;
+}
+
+.error-screen h2 {
+  color: var(--error-color);
+  margin-bottom: 16px;
+  font-size: 1.5rem;
+}
+
+.error-screen p {
+  color: var(--text-color);
+  margin-bottom: 24px;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  max-width: 400px;
+}
+
+.error-screen button {
+  padding: 12px 24px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.error-screen button:hover {
+  background-color: #43a047;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent pull-to-refresh on mobile */
+html, body {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+/* Hide scrollbars but allow scrolling */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Disable text selection */
+.app-container {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Improve button tap targets on mobile */
+button {
+  min-width: 44px;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 767px) {
+  .error-screen h2 {
+    font-size: 1.3rem;
+  }
+
+  .error-screen p {
+    font-size: 1rem;
+  }
+
+  .error-screen button {
+    width: 100%;
+    max-width: 300px;
+    padding: 16px;
+  }
+}
