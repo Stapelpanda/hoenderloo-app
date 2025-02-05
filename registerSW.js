@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/hoenderloo-app/sw.js', { scope: '/hoenderloo-app/' })})}
