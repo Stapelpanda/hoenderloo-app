@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import './App.css'
 import Map from './pages/Map'
 import Treasure from './pages/Treasure'
@@ -7,7 +7,7 @@ import Posts from './pages/Posts'
 
 function App() {
   return (
-    <Router basename="/hoenderloo-app">
+    <Router basename="/hoenderloo-app/">
       <div className="app-container">
         <div className="content">
           <Routes>
