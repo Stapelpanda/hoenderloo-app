@@ -4,10 +4,13 @@ import Map from './pages/Map'
 import Treasure from './pages/Treasure'
 import Info from './pages/Info'
 import Posts from './pages/Posts'
+import InstallPrompt from './components/InstallPrompt'
 
 function App() {
   return (
-    <Router basename="/hoenderloo-app/">
+    <>
+      <InstallPrompt />
+      <Router basename="/hoenderloo-app/">
       <div className="app-container">
         <div className="content">
           <Routes>
@@ -36,7 +39,8 @@ function App() {
           </Link>
         </nav>
       </div>
-    </Router>
+      </Router>
+    </>
   )
 }
 

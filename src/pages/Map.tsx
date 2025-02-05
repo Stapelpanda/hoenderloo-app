@@ -15,6 +15,8 @@ const Map: React.FC = () => {
   const [error, setError] = useState<string>('');
   const [distance, setDistance] = useState<number | null>(null);
   const [bearing, setBearing] = useState<number | null>(null);
+  const [compass, setCompass] = useState<number>(0);
+  const [hasCompass, setHasCompass] = useState<boolean>(false);
 
   // Calculate distance between two points in meters
   const calculateDistance = (lat1: number, lon1: number, lat2: number, lon2: number): number => {
@@ -53,6 +55,42 @@ const Map: React.FC = () => {
     return directions[Math.round(bearing / 45) % 8];
   };
 
+  // Handle compass/deviceorientation
+  useEffect(() => {
+    // Check if device has compass
+    if (window.DeviceOrientationEvent) {
+      const handler = (e: DeviceOrientationEvent) => {
+        if (e.webkitCompassHeading) {
+          // iOS compass heading (inverted)
+          setCompass(e.webkitCompassHeading);
+          setHasCompass(true);
+        } else if (e.alpha) {
+          // Android/other compass heading
+          setCompass(360 - e.alpha);
+          setHasCompass(true);
+        }
+      };
+
+      // Request permission for iOS 13+
+      if ((DeviceOrientationEvent as any).requestPermission) {
+        (DeviceOrientationEvent as any).requestPermission()
+          .then((result: string) => {
+            if (result === 'granted') {
+              window.addEventListener('deviceorientation', handler, true);
+            }
+          })
+          .catch(console.error);
+      } else {
+        window.addEventListener('deviceorientation', handler, true);
+      }
+
+      return () => {
+        window.removeEventListener('deviceorientation', handler, true);
+      };
+    }
+  }, []);
+
+  // Handle location tracking
   useEffect(() => {
     const watchId = navigator.geolocation.watchPosition(
       (position) => {
@@ -105,10 +143,21 @@ const Map: React.FC = () => {
           <div className="direction-indicator">
             <div 
               className="compass-arrow"
-              style={{ transform: `rotate(${bearing}deg)` }}
+              style={{ transform: `rotate(${hasCompass ? bearing! - compass : bearing}deg)` }}
             />
-            <div className="direction-text">
-              Loop richting {getDirection(bearing!)}
+            <div className="compass-info">
+              {hasCompass ? (
+                <>
+                  <div className="compass-degrees">{Math.round(compass)}°</div>
+                  <div className="direction-text">
+                    Loop richting {getDirection(bearing!)}
+                  </div>
+                </>
+              ) : (
+                <div className="direction-text">
+                  Loop richting {getDirection(bearing!)}
+                </div>
+              )}
             </div>
           </div>
           <div className="distance-text">
