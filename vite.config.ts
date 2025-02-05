@@ -14,10 +14,13 @@ export default defineConfig({
         name: 'Hoenderloo App',
         short_name: 'Hoenderloo',
         description: 'Hoenderloo App voor speurtochten en informatie',
-        theme_color: '#ffffff',
+        theme_color: '#2196f3',
+        background_color: '#ffffff',
         start_url: '/hoenderloo-app/',
         scope: '/hoenderloo-app/',
         display: 'standalone',
+        orientation: 'portrait',
+        prefer_related_applications: false,
         icons: [
           {
             src: 'pwa-192x192.png',

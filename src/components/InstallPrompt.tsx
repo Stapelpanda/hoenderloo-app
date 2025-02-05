@@ -18,7 +18,14 @@ const InstallPrompt: React.FC = () => {
       setShowPrompt(true);
     };
 
-    window.addEventListener('beforeinstallprompt', handler);
+    // Check if the app is already installed
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || 
+                        (window.navigator as any).standalone || 
+                        document.referrer.includes('android-app://');
+
+    if (!isStandalone) {
+      window.addEventListener('beforeinstallprompt', handler);
+    }
 
     return () => {
       window.removeEventListener('beforeinstallprompt', handler);
@@ -50,8 +57,11 @@ const InstallPrompt: React.FC = () => {
   return (
     <div className="install-prompt">
       <div className="install-prompt-content">
-        <p>Installeer de Hoenderloo App</p>
-        <button onClick={handleInstallClick}>
+        <div className="install-prompt-text">
+          <p className="install-prompt-title">Installeer de Hoenderloo App</p>
+          <p className="install-prompt-subtitle">Gebruik de app offline en krijg een betere ervaring</p>
+        </div>
+        <button onClick={handleInstallClick} className="install-button">
           Installeren
         </button>
       </div>
