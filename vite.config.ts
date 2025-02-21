@@ -4,7 +4,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/hoenderloo-app/',
+  base: '/',
   plugins: [
     react(),
     VitePWA({
@@ -16,8 +16,8 @@ export default defineConfig({
         description: 'Hoenderloo App voor speurtochten en informatie',
         theme_color: '#2196f3',
         background_color: '#ffffff',
-        start_url: '/hoenderloo-app/',
-        scope: '/hoenderloo-app/',
+        start_url: '/',
+        scope: '/',
         display: 'standalone',
         orientation: 'portrait',
         prefer_related_applications: false,

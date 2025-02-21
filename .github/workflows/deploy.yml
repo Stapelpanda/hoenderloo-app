@@ -1,11 +1,8 @@
-name: Deploy to GitHub Pages
+name: Deploy to Production
 
 on:
   push:
     branches: [ main ]
-
-permissions:
-  contents: write
 
 jobs:
   build-and-deploy:
@@ -25,8 +22,14 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
         with:
-          folder: dist
-          branch: gh-pages
+          key: ${{ secrets.DEPLOY_KEY }}
+          known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
+
+      - name: Adding Known Hosts
+        run: ssh-keyscan -p 7685 -H speurtocht.stpd.nl >> ~/.ssh/known_hosts
+
+      - name: Deploy with rsync
+        run: rsync -avz -e "ssh -p 7685" ./dist/ mvonk@speurtocht.stpd.nl:/home/mvonk/domains/speurtocht.stpd.nl/public_html
