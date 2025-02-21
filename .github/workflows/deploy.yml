@@ -32,4 +32,4 @@ jobs:
         run: ssh-keyscan -p 7685 -H 185.104.29.30 >> ~/.ssh/known_hosts
 
       - name: Deploy with rsync
-        run: rsync -avz -e "ssh -p 7685" ./dist/ mvonk@185.104.29.30:/home/mvonk/domains/speurtocht.stpd.nl/public_html
+        run: rsync -avz -e "ssh -p 7685" ./dist/ mvonk@185.104.29.30:/home/mvonk/domains/speurtocht.stapelpanda.nl/public_html
