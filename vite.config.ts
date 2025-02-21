@@ -36,24 +36,30 @@ export default defineConfig({
         background_color: '#ffffff',
         display: 'standalone',
         orientation: 'portrait',
-        start_url: '.',
+        start_url: '/',
         icons: [
           {
-            src: '/icons/icon-512x512.png',
+            src: 'icons/icon-512x512.png',
             sizes: '512x512',
             type: 'image/png'
           }
         ]
       },
+      includeAssets: [
+        'assets/**/*.{jpg,jpeg,png,gif,webp}'
+      ],
       workbox: {
         globPatterns: [
-          '**/*.{js,css,html,ico,png,svg,jpg}',
-          'assets/*.{jpg,jpeg,png,gif,webp}',
-          'assets/*.{jpg,jpeg,png,gif,webp}'
+          '**/*.{js,css,html,ico,png,svg}',
+          'assets/**/*.{jpg,jpeg,png,gif,webp}'
         ],
+        globDirectory: 'dist',
         maximumFileSizeToCacheInBytes: 50 * 1024 * 1024, // 50MB to ensure all images are cached
         navigateFallback: 'index.html'
-      }
+      },
+      strategies: 'injectManifest',
+      srcDir: 'src',
+      filename: 'sw.ts'
     })
   ]
 })
