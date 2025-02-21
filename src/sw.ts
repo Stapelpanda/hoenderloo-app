@@ -12,11 +12,28 @@ import { CacheableResponsePlugin } from 'workbox-cacheable-response'
 self.skipWaiting()
 clientsClaim()
 
+// Enable navigation preload if available
+self.addEventListener('activate', (event) => {
+  if (self.registration.navigationPreload) {
+    event.waitUntil(self.registration.navigationPreload.enable());
+  }
+});
+
 // Clean up old caches
 cleanupOutdatedCaches()
 
 // Precache all assets
 precacheAndRoute(self.__WB_MANIFEST)
+
+// Let browser handle device events directly
+self.addEventListener('fetch', event => {
+  const url = new URL(event.request.url);
+  if (url.pathname.includes('deviceorientation') || 
+      url.pathname.includes('orientation') ||
+      url.pathname.includes('motion')) {
+    return;
+  }
+});
 
 // Cache external resources like fonts
 registerRoute(

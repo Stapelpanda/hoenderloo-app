@@ -13,6 +13,42 @@ const Treasure: React.FC = () => {
   const [waypointsWithDistance, setWaypointsWithDistance] = useState<WaypointWithDistance[]>([]);
   const [error, setError] = useState<string>('');
   const [showPanorama, setShowPanorama] = useState(false);
+  const [compass, setCompass] = useState<number>(0);
+  const [hasCompass, setHasCompass] = useState<boolean>(false);
+
+  // Handle compass/deviceorientation
+  useEffect(() => {
+    if (window.DeviceOrientationEvent) {
+      const handler = (e: DeviceOrientationEvent) => {
+        if (e.webkitCompassHeading) {
+          // iOS compass heading (inverted)
+          setCompass(e.webkitCompassHeading);
+          setHasCompass(true);
+        } else if (e.alpha) {
+          // Android/other compass heading
+          setCompass(360 - e.alpha);
+          setHasCompass(true);
+        }
+      };
+
+      // Request permission for iOS 13+
+      if ((DeviceOrientationEvent as any).requestPermission) {
+        (DeviceOrientationEvent as any).requestPermission()
+          .then((result: string) => {
+            if (result === 'granted') {
+              window.addEventListener('deviceorientation', handler, true);
+            }
+          })
+          .catch(console.error);
+      } else {
+        window.addEventListener('deviceorientation', handler, true);
+      }
+
+      return () => {
+        window.removeEventListener('deviceorientation', handler, true);
+      };
+    }
+  }, []);
 
   // Calculate distance between two points in meters
   const calculateDistance = (lat1: number, lon1: number, lat2: number, lon2: number): number => {
@@ -141,7 +177,7 @@ const Treasure: React.FC = () => {
               <div className="compass-container">
                 <div 
                   className="compass-arrow"
-                  style={{ transform: `rotate(${currentWaypoint.bearing}deg)` }}
+                  style={{ transform: `rotate(${hasCompass ? currentWaypoint.bearing - compass : currentWaypoint.bearing}deg)` }}
                 />
                 <div className="distance-info">
                   <div>Loop richting {getDirection(currentWaypoint.bearing)}</div>
