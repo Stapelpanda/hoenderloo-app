@@ -73,6 +73,11 @@ const Treasure: React.FC = () => {
     }
   }, [currentLocation]);
 
+  // Reset solution visibility when switching waypoints
+  useEffect(() => {
+    setShowSolution(false);
+  }, [currentIndex]);
+
   // Watch location
   useEffect(() => {
     const watchId = navigator.geolocation.watchPosition(

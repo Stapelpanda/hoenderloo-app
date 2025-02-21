@@ -24,53 +24,36 @@ export default defineConfig({
       }
     }),
     VitePWA({
-      registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
+      registerType: 'prompt',
+      devOptions: {
+        enabled: true
+      },
       manifest: {
         name: 'Hoenderloo App',
         short_name: 'Hoenderloo',
         description: 'Hoenderloo App voor speurtochten en informatie',
         theme_color: '#2196f3',
         background_color: '#ffffff',
-        start_url: '/',
-        scope: '/',
         display: 'standalone',
         orientation: 'portrait',
-        prefer_related_applications: false,
+        start_url: '.',
         icons: [
           {
-            src: 'pwa-192x192.png',
-            sizes: '192x192',
-            type: 'image/png'
-          },
-          {
-            src: 'pwa-512x512.png',
+            src: '/icons/icon-512x512.png',
             sizes: '512x512',
-            type: 'image/png',
-            purpose: 'any maskable'
+            type: 'image/png'
           }
         ]
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,webp}'],
-        maximumFileSizeToCacheInBytes: 4 * 1024 * 1024, // 4MB
-        runtimeCaching: [
-          {
-            urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'google-fonts-cache',
-              expiration: {
-                maxEntries: 10,
-                maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
-              },
-              cacheableResponse: {
-                statuses: [0, 200]
-              }
-            }
-          }
-        ]
+        globPatterns: [
+          '**/*.{js,css,html,ico,png,svg,jpg}',
+          'assets/*.{jpg,jpeg,png,gif,webp}',
+          'assets/*.{jpg,jpeg,png,gif,webp}'
+        ],
+        maximumFileSizeToCacheInBytes: 50 * 1024 * 1024, // 50MB to ensure all images are cached
+        navigateFallback: 'index.html'
       }
     })
-  ],
+  ]
 })
