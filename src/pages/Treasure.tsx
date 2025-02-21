@@ -4,7 +4,7 @@ import { WaypointWithDistance } from '../types/waypoint';
 import PanoramaViewer from '../components/PanoramaViewer';
 import { getPanoramaUrl } from '../assets/panoramas';
 
-const RADIUS = 500000; // meters
+const RADIUS = 50; // meters
 
 const Treasure: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -128,29 +128,30 @@ const Treasure: React.FC = () => {
           <div className="waypoint-content">
             {showPanorama && (
               <PanoramaViewer
-                imageNumber={currentWaypoint.imageNumber}
+                waypointId={currentWaypoint.id}
                 onClose={() => setShowPanorama(false)}
               />
             )}
             {!showPanorama && (
+              <div className="compass-container">
+                <div 
+                  className="compass-arrow"
+                  style={{ transform: `rotate(${currentWaypoint.bearing}deg)` }}
+                />
+                <div className="distance-info">
+                  <div>Loop richting {getDirection(currentWaypoint.bearing)}</div>
+                  <div>Nog {Math.round(currentWaypoint.distance)} meter</div>
+                </div>
+              </div>
+            )}
+
+            {!showPanorama && isWithinRadius && getPanoramaUrl(currentWaypoint.id) && (
               <div className="location-info" onClick={() => setShowPanorama(true)}>
                 <img 
-                  src={getPanoramaUrl(currentWaypoint.imageNumber.padStart(3, '0'))} 
+                  src={getPanoramaUrl(currentWaypoint.id)} 
                   alt="Preview van panorama"
                   style={{ width: '100%', height: '150px', objectFit: 'cover', cursor: 'pointer' }}
                 />
-                {!isWithinRadius && (
-                  <div className="compass-container">
-                    <div 
-                      className="compass-arrow"
-                      style={{ transform: `rotate(${currentWaypoint.bearing}deg)` }}
-                    />
-                    <div className="distance-info">
-                      <div>Loop richting {getDirection(currentWaypoint.bearing)}</div>
-                      <div>Nog {Math.round(currentWaypoint.distance)} meter</div>
-                    </div>
-                  </div>
-                )}
               </div>
             )}
 

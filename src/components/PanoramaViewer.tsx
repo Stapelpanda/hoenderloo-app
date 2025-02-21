@@ -8,11 +8,11 @@ declare global {
 }
 
 interface PanoramaViewerProps {
-  imageNumber: string;
+  waypointId: string;
   onClose: () => void;
 }
 
-const PanoramaViewer: React.FC<PanoramaViewerProps> = ({ imageNumber, onClose }) => {
+const PanoramaViewer: React.FC<PanoramaViewerProps> = ({ waypointId, onClose }) => {
   const viewerRef = useRef<HTMLDivElement>(null);
   const pannellumRef = useRef<any>(null);
 
@@ -20,7 +20,7 @@ const PanoramaViewer: React.FC<PanoramaViewerProps> = ({ imageNumber, onClose })
     if (viewerRef.current && window.pannellum) {
       pannellumRef.current = window.pannellum.viewer(viewerRef.current, {
         type: 'equirectangular',
-        panorama: getPanoramaUrl(imageNumber.padStart(3, '0')),
+        panorama: getPanoramaUrl(waypointId),
         autoLoad: true,
         compass: false,
         showZoomCtrl: false,
@@ -36,7 +36,7 @@ const PanoramaViewer: React.FC<PanoramaViewerProps> = ({ imageNumber, onClose })
         pannellumRef.current.destroy();
       }
     };
-  }, [imageNumber]);
+  }, [waypointId]);
 
   return (
     <div className="panorama-viewer">

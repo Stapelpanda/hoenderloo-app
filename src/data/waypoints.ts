@@ -19,8 +19,9 @@ export const waypoints: Waypoint[] = [
       longitude: 5.901452181860805
     },
     imageNumber: "002",
-    type: "task",
-    content: "Zoek 3 verschillende soorten bomen en benoem ze. Tip: kijk naar de vorm van de bladeren en de schors."
+    type: "question",
+    content: "Noem 3 verschillende soorten bomen die veel voorkomen in Nederlandse bossen.",
+    solution: "Bijvoorbeeld: Eik, Beuk en Den"
   },
   {
     id: "006",
@@ -40,8 +41,9 @@ export const waypoints: Waypoint[] = [
       longitude: 5.90281717479229
     },
     imageNumber: "004",
-    type: "task",
-    content: "Maak een natuurlijk kompas: plaats een stok rechtop in de grond en markeer het einde van de schaduw. Wacht 15 minuten, markeer opnieuw. De lijn tussen de punten wijst oost-west."
+    type: "question",
+    content: "Hoe kun je met behulp van de zon en een stok bepalen waar het oosten en westen is?",
+    solution: "Door een stok rechtop in de grond te zetten, het einde van de schaduw te markeren, 15 minuten te wachten en opnieuw te markeren. De lijn tussen de punten wijst oost-west"
   },
   {
     id: "008",
@@ -61,8 +63,9 @@ export const waypoints: Waypoint[] = [
       longitude: 5.907008796930313
     },
     imageNumber: "006",
-    type: "task",
-    content: "Vind sporen van dieren (pootafdrukken, knaagsporen aan bomen, etc.) en maak er een foto van."
+    type: "question",
+    content: "Noem drie verschillende sporen die dieren kunnen achterlaten in het bos.",
+    solution: "Pootafdrukken, knaagsporen aan bomen, en uitwerpselen"
   },
   {
     id: "010",
@@ -82,8 +85,9 @@ export const waypoints: Waypoint[] = [
       longitude: 5.907423449680209
     },
     imageNumber: "008",
-    type: "task",
-    content: "Maak een schuilhut met natuurlijke materialen die je hier vindt. Denk aan takken en bladeren."
+    type: "question",
+    content: "Welke natuurlijke materialen heb je nodig om een basis schuilhut te maken?",
+    solution: "Stevige takken voor de constructie, kleinere takken voor het dak, en bladeren/dennentakken voor de bedekking"
   },
   {
     id: "012",
@@ -103,8 +107,9 @@ export const waypoints: Waypoint[] = [
       longitude: 5.917906863614917
     },
     imageNumber: "010",
-    type: "task",
-    content: "Verzamel 5 verschillende soorten bladeren en leg ze op volgorde van klein naar groot."
+    type: "question",
+    content: "Welke boom heeft de grootste bladeren in het Nederlandse bos?",
+    solution: "De Plataan, met bladeren die wel 25 cm groot kunnen worden"
   },
   {
     id: "014",
@@ -124,8 +129,9 @@ export const waypoints: Waypoint[] = [
       longitude: 5.912749813869596
     },
     imageNumber: "012",
-    type: "task",
-    content: "Doe de boom-hoogte-meting: Houd een stok rechtop met gestrekte arm. Loop achteruit tot de top van de stok gelijk is met de boomtop. De afstand tot de boom is ongeveer gelijk aan de hoogte."
+    type: "question",
+    content: "Hoe kun je zonder meetlint de hoogte van een boom schatten?",
+    solution: "Door een stok met gestrekte arm rechtop te houden en achteruit te lopen tot de top van de stok gelijk is met de boomtop. De afstand tot de boom is dan ongeveer gelijk aan de hoogte"
   },
   // Vervolg met meer waypoints...
   {
@@ -146,8 +152,9 @@ export const waypoints: Waypoint[] = [
       longitude: 5.908671095967293
     },
     imageNumber: "014",
-    type: "task",
-    content: "Maak een tekening van drie verschillende soorten dierenpootafdrukken die je hier zou kunnen vinden."
+    type: "question",
+    content: "Van welke drie grote dieren kun je pootafdrukken tegenkomen op de Veluwe?",
+    solution: "Edelhert, wild zwijn en ree"
   },
   {
     id: "018",
@@ -167,8 +174,9 @@ export const waypoints: Waypoint[] = [
       longitude: 5.905157988891006
     },
     imageNumber: "016",
-    type: "task",
-    content: "Vind drie verschillende soorten paddenstoelen en teken ze na (niet aanraken!)."
+    type: "question",
+    content: "Noem drie veel voorkomende paddenstoelen in Nederlandse bossen.",
+    solution: "Vliegenzwam, Eekhoorntjesbrood en Cantharellen"
   },
   {
     id: "020",
@@ -188,8 +196,9 @@ export const waypoints: Waypoint[] = [
       longitude: 5.905449260026217
     },
     imageNumber: "018",
-    type: "task",
-    content: "Maak een compositie van natuurlijke materialen (takjes, bladeren, etc.) in de vorm van een kompas."
+    type: "question",
+    content: "Wat zijn de vier hoofdwindrichtingen op een kompas?",
+    solution: "Noord, Oost, Zuid en West"
   },
   {
     id: "022",
@@ -209,8 +218,9 @@ export const waypoints: Waypoint[] = [
       longitude: 5.908798584714532
     },
     imageNumber: "020",
-    type: "task",
-    content: "Doe de 'stille voetstappen challenge': probeer zo geruisloos mogelijk te lopen en tel hoeveel stappen je kunt zetten voordat iemand je hoort."
+    type: "question",
+    content: "Waarom is het belangrijk om stil te kunnen lopen in de natuur?",
+    solution: "Om wilde dieren niet te verstoren en meer kans te hebben om ze te kunnen observeren"
   },
   {
     id: "024",
@@ -230,8 +240,9 @@ export const waypoints: Waypoint[] = [
       longitude: 5.90548018924892
     },
     imageNumber: "022",
-    type: "task",
-    content: "Maak een 'natuurlijke' regenboog: verzamel voorwerpen in verschillende kleuren die je in de natuur kunt vinden."
+    type: "question",
+    content: "Welke kleuren kun je allemaal vinden in de natuur?",
+    solution: "Groen (bladeren), bruin (schors), rood (bessen), geel (bloemen), wit (bloemen), paars (heide), zwart (bessen)"
   },
   {
     id: "026",
@@ -251,8 +262,9 @@ export const waypoints: Waypoint[] = [
       longitude: 5.898312991485
     },
     imageNumber: "024",
-    type: "task",
-    content: "Maak een 'natuurlijke' zonnewijzer met een stok in de grond en markeer de schaduw met stenen."
+    type: "question",
+    content: "Hoe werkt een zonnewijzer?",
+    solution: "Een verticale stok werpt een schaduw die door de loop van de zon van positie verandert. Door de posities te markeren kun je de tijd aflezen"
   },
   {
     id: "028",
@@ -272,8 +284,9 @@ export const waypoints: Waypoint[] = [
       longitude: 5.891240844503045
     },
     imageNumber: "026",
-    type: "task",
-    content: "Zoek drie verschillende soorten naaldbomen en benoem de verschillen in hun naalden en dennenappels."
+    type: "question",
+    content: "Wat zijn de verschillen tussen een den, spar en lariks?",
+    solution: "Den heeft lange naalden in bundels, spar heeft korte losse naalden, en lariks verliest zijn naalden in de winter"
   },
   {
     id: "030",
@@ -293,8 +306,9 @@ export const waypoints: Waypoint[] = [
       longitude: 5.879241479560733
     },
     imageNumber: "028",
-    type: "task",
-    content: "Maak een 'natuurlijke' meetlat: zoek een tak die precies zo lang is als je onderarm (elleboog tot vingertop)."
+    type: "question",
+    content: "Welk lichaamsdeel kun je gebruiken als natuurlijke meetlat?",
+    solution: "Je onderarm (van elleboog tot vingertop) is ongeveer 45-50 cm"
   },
   {
     id: "032",
@@ -314,8 +328,9 @@ export const waypoints: Waypoint[] = [
       longitude: 5.880552409216762
     },
     imageNumber: "030",
-    type: "task",
-    content: "Doe de 'natuurgeluiden challenge': sta 1 minuut stil met je ogen dicht en tel hoeveel verschillende geluiden je hoort."
+    type: "question",
+    content: "Welke geluiden kun je allemaal horen in het bos?",
+    solution: "Vogels die zingen, wind door de bladeren, krakende takken, insecten die zoemen"
   },
   {
     id: "034",
@@ -335,8 +350,9 @@ export const waypoints: Waypoint[] = [
       longitude: 5.871917204931378
     },
     imageNumber: "032",
-    type: "task",
-    content: "Maak een 'natuurlijke' windvaan: bevestig een blad aan een rechte stok en steek deze in de grond."
+    type: "question",
+    content: "Hoe kun je zien uit welke richting de wind komt zonder windvaan?",
+    solution: "Door te kijken naar bewegende bladeren in boomtoppen, of door een nat vinger op te steken"
   },
   {
     id: "036",
@@ -356,8 +372,9 @@ export const waypoints: Waypoint[] = [
       longitude: 5.870822025462985
     },
     imageNumber: "034",
-    type: "task",
-    content: "Bouw een mini-pionierwerk met dunne takjes en touw (als je dat bij je hebt)."
+    type: "question",
+    content: "Wat is pionieren en welke knopen heb je daarbij nodig?",
+    solution: "Pionieren is het bouwen van constructies met hout en touw. Je gebruikt vooral de mastworp en kruissjorring"
   },
   {
     id: "038",
@@ -377,8 +394,9 @@ export const waypoints: Waypoint[] = [
       longitude: 5.871702125295997
     },
     imageNumber: "036",
-    type: "task",
-    content: "Maak een schets van het mooiste uitzicht dat je hier ziet."
+    type: "question",
+    content: "Wat zijn kenmerkende landschapselementen van de Veluwe?",
+    solution: "Uitgestrekte bossen, heidevelden, zandverstuivingen en wildwissels"
   },
   {
     id: "040",
@@ -398,8 +416,9 @@ export const waypoints: Waypoint[] = [
       longitude: 5.875188913196325
     },
     imageNumber: "038",
-    type: "task",
-    content: "Verzamel verschillende soorten boombast (alleen van de grond!) en voel de verschillende texturen."
+    type: "question",
+    content: "Hoe voelt de schors van verschillende bomen aan?",
+    solution: "Berk (glad en wit), eik (diep gegroefd), den (schilferig rood-bruin)"
   },
   {
     id: "042",
@@ -419,7 +438,8 @@ export const waypoints: Waypoint[] = [
       longitude: 5.877161426469684
     },
     imageNumber: "040",
-    type: "task",
-    content: "Doe de 'balans challenge': probeer 30 seconden op één been te staan op verschillende ondergronden (zand, gras, etc.)."
+    type: "question",
+    content: "Welke verschillende soorten ondergrond kom je tegen op de Veluwe?",
+    solution: "Zand, bosgrond met naalden/bladeren, heide, gras en mos"
   }
 ];
